@@ -18,6 +18,7 @@
     <script src="assets/angular/angular.min.js"></script>
 
 
+
     <!-- Custom styles for this template -->
     <link href="navbar-fixed-top.css" rel="stylesheet">
 
@@ -109,6 +110,7 @@
                         <div class="p-m">
                             <div class="row">
                                 <div class="form-group col-sm-2">
+
                                     <label>Full Name</label>
                                     <input type="text" value="" id="" class="form-control" ng-model="user.username" placeholder="Last, First">
                                     </div>
@@ -117,40 +119,46 @@
                                     <input type="" value="" id="" class="form-control" ng-model="user.price" placeholder="$16.00">
                                     </div>  
 
-                                 <div class="form-group col-sm-2">
+                                 <div class="form-group col-sm-3">
                                   <label>Date</label>   
-                               <input type="text" value="" id="" class="form-control" ng-model="user.date" placeholder="mm/dd/yyyy">
+                               <input type="date" value="" id="" class="form-control" ng-model="user.date" style="width:158px;"></input>
                                 </div>
                              <div class="form-group col-sm-2">
                                   <label>Time</label>   
-                               <input type="text" value="" id="" class="form-control" ng-model="user.time" placeholder="hh:mm">
+                               <input type="time" value="" id="" class="form-control" ng-model="user.time" style="
+                            width:125px;"></input>
                                 </div>
-                                <div class="form-group col-sm-2">
+                                <div class="form-group col-xs-1">
                                   <label>AM/PM</label>   
-                               <input type="text" value="" id="" class="form-control" ng-model="user.time" placeholder="">
+                               <input type="text" value="" id="" class="form-control" ng-model="user.am_pm" style="
+                            width:50;"></input>
                                 </div>
                             
-                            </div>
-
-                            </div>
-                            </form>
-                            </div>
-                            </div>
+                           <div class="form-group col-sm-2">
 
 
-                 
+
+                           </div>
+
+                     
+                        </div>
+                        </div>
+                        </form>
+
+
+       
                         <div class="m-t-md">
 
-<pre>user.name = <span ng-bind="user.username"></span></pre>
+<pre>user.name = <span ng-bind="user.username | uppercase "></span></pre>
 <pre>user.price = <span ng-bind="user.price"></span></pre>
-<pre>user.date = <span ng-bind="user.date"></span></pre>
-<pre>user.time = <span ng-bind="user.time"></span></pre>
+<pre>user.date = <span ng-bind="user.date | date:'MM/dd/yyyy'"></span></pre>
+<pre>user.time = <span ng-bind="user.time | date:'HH:mm'"></span></pre>
+<pre>user.time = <span ng-bind="user.am_pm | uppercase"></span></pre>
 
 
 
-                            
 
-                        </div>
+                    </div>
 
 
 
@@ -395,7 +403,7 @@
 <div id="tc_1" class="t v1 s2_1"></div>
 <div id="td_1" class="t v1 s2_1">1 2 3 4 5 6 7</div>
 <div id="te_1" class="t v1 s2_1">FARE </div>
-<div id="tf_1" class="t v1 s2_1">$</div>
+<div id="tf_1" class="t v1 s2_1">$ <div ng-bind="user.price"></div></div>
 <div id="tg_1" class="t v1 s2_1"> </div>
 <div id="th_1" class="t v1 s2_1">MILES: </div>
 <div id="ti_1" class="t v1 s2_1"> </div>
@@ -420,7 +428,7 @@
 <div id="t11_1" class="t v2 s2_1"></div>
 <div id="t12_1" class="t v2 s2_1"></div>
 <div id="t13_1" class="t v1 s2_1">*COUPON DEST*</div>
-<div id="t14_1" class="t v2 s2_1"><div ng-bind="user.username"></div></div>
+<div id="t14_1" class="t v2 s2_1"><div ng-bind="user.username | uppercase "></div></div>
 <div id="t15_1" class="t v2 s2_1">SCHD: BZ </div>
 <div id="t16_1" class="t v2 s2_1"></div>
 <div id="t17_1" class="t v1 s2_1"> </div>
