@@ -1,171 +1,419 @@
 <html>
-<head>
-
-<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>Angular_Tickets</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Angular Js -->
-    <script src="assets/angular/angular.min.js"></script>
-
-
-
-    <!-- Custom styles for this template -->
-    <link href="navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script><style>.carbonad,
-#content > #right > .dose > .dosesingle,
-#content > #center > .dose > .dosesingle,
-#carbonads-container
-{display:none !important;}</style>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../../favicon.ico">
+      <title>Angular_Tickets</title>
+      <!-- Bootstrap core CSS -->
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Angular Js -->
+      <script src="assets/angular/angular.min.js"></script>
+      <!-- Custom styles for this template -->
+      <link href="navbar-fixed-top.css" rel="stylesheet">
+      <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+      <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+      <script src="assets/js/ie-emulation-modes-warning.js"></script>
+      <style>.carbonad,
+         #content > #right > .dose > .dosesingle,
+         #content > #center > .dose > .dosesingle,
+         #carbonads-container
+         {display:none !important;}
+      </style>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+      <![endif]-->
+   </head>
+   </head>
+   <body ng-app="">
+      <nav class="navbar navbar-default">
+         <div class="container-fluid">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+         </div>
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+               <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+               <li><a href="#">Link</a></li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                     <li><a href="#">Action</a></li>
+                     <li><a href="#">Another action</a></li>
+                     <li><a href="#">Something else here</a></li>
+                     <li class="divider"></li>
+                     <li><a href="#">Separated link</a></li>
+                     <li class="divider"></li>
+                     <li><a href="#">One more separated link</a></li>
+                  </ul>
+               </li>
+            </ul>
+            <div class="navbar-form navbar-right" role="form">
+               <div class="input-group">
+                  <button class="btn btn-success" ng-click="showme=true">Show Form</button>          
+               </div>
+               <div class="input-group"> 
+                  <button  class="btn btn-danger" ng-click="showme=false">Hide Form</button>      
+               </div>
+               <div class="input-group">
+               <a href="javascript:window.print()" class="btn btn-primary">Print Ticket</a> 
+              </div>
+            </div>
+         </div>
+      </nav>
+      <div class="col-lg-12">
+         <div ng-show="showme">
+            <form>
+               <div class="row">
+                  <div class="form-group col-sm-2">
+                     <label>Full Name</label>
+                     <input type="text" value="" id="" class="form-control" ng-model="user.username" placeholder="Last, First">
+                  </div>
+                  <div class="form-group col-sm-2">
+                     <label>Price</label>
+                     <input type="" value="" id="" class="form-control" ng-model="user.price" placeholder="$16.00">
+                  </div>
+                  <div class="form-group col-sm-3">
+                     <label>Date</label>   
+                     <input type="date" value="" id="" class="form-control" ng-model="user.date" style="width:150px;" placeholder="01/01/2015"></input>
+                  </div>
+                  <div class="form-group col-sm-2">
+                     <label>Time</label>   
+                     <input type="time" value="" id="" class="form-control" ng-model="user.time" placeholder="05:45"></input>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="form-group col-sm-3">
+                 <label>Origin of Ticket</label>
+                <select ng-model="user.initial_location">
+                    
+          <option value="ALBANY, NY">Albany, NY</option>
+          <option value="AMHERST, MA">Amherst, MA</option>
+          <option value="BALTIMORE DOWNTOWN, MD">Baltimore Downtown, MD</option>
+          <option value="BARNSTABLE, MA">Barnstable, MA</option>
+          <option value="BOSTON, MA">Boston, MA</option>
+          <option value="BOSTON LOGAN ARPT, MA">Boston Logan Arpt, MA</option>
+          <option value="BOURNE, MA">Bourne, MA</option>
+          <option value="BUZZARDS BAY, MA">Buzzards Bay, MA</option>
+          <option value="CONCORD, NH">Concord, NH</option>
+          <option value="DANBURY, CT">Danbury, CT</option>
+          <option value="DEERFIELD, MA">Deerfield, MA</option>
+          <option value="FALL RIVER, MA">Fall River, MA</option>
+          <option value="FALMOUTH, MA">Falmouth, MA</option>
+          <option value="FARMINGTON, CT">Farmington, CT</option>
+          <option value="FRAMINGHAM, MA">Framingham, MA</option>
+          <option value="GREAT BARRINGTON, MA">Great Barrington, MA</option>
+          <option value="GREENFIELD, MA">Greenfield, MA</option>
+          <option value="HAMPSHIRE COLL, MA">Hampshire Coll, MA</option>
+          <option value="HARTFORD, CT">Hartford, CT</option>
+          <option value="HOLYOKE, MA">Holyoke, MA</option>
+          <option value="HOLYOKE MALL, MA">Holyoke Mall, MA</option>
+          <option value="HYANNIS, MA">Hyannis, MA</option>
+          <option value="LEE, MA">Lee, MA</option>
+          <option value="LENOX, MA">Lenox, MA</option>
+          <option value="LEOMINSTER, MA">Leominster, MA</option>
+          <option value="LOWELL, MA">Lowell, MA</option>
+          <option value="MANCHESTER, NH">Manchester, NH</option>
+          <option value="MANSFIELD, CT">Mansfield, CT</option>
+          <option value="MIDDLETOWN, RI">Middletown, RI</option>
+          <option value="MT LAUREL, NJ">Mt Laurel, NJ</option>
+          <option value="NASHUA, NH">Nashua, NH</option>
+          <option value="NEWARK, NJ">Newark, NJ</option>
+          <option value="NEW BEDFORD, MA">New Bedford, MA</option>
+          <option value="NEW BRITAIN, CT">New Britain, CT</option>
+          <option value="NEW CARROLLTON, MD">New Carrollton, MD</option>
+          <option value="NEW HAVEN, CT">New Haven, CT</option>
+          <option value="NEWPORT, RI">Newport, RI</option>
+          <option value="NEW YORK, NY">New York, NY</option>
+          <option value="NORTHAMPTON, MA">Northampton, MA</option>
+          <option value="PHILADELPHIA, PA">Philadelphia, PA</option>
+          <option value="PITTSFIELD, MA">Pittsfield, MA</option>
+          <option value="PORTSMOUTH, RI">Portsmouth, RI</option>
+          <option value="PROVIDENCE BZ, RI">Providence Bz, RI</option>
+          <option value="PROVIDENCE DOWNTOWN,RI">Providence Downtown, RI</option>
+          <option value="SHEFFIELD, MA">Sheffield, MA</option>
+          <option value="SILVER SPRING, MD">Silver Spring, MD</option>
+          <option value="SOMERSET PARK, MA">Somerset Park, MA</option>
+          <option value="SOUTHBURY, CT">Southbury, CT</option>
+          <option value="SOUTH HADLEY, MA">South Hadley, MA</option>
+          <option value="SPRINGFIELD, MA">Springfield, MA</option>
+          <option value="STOCKBRIDGE, MA">Stockbridge, MA</option>
+          <option value="STORRS UCONN CT">Storrs Uconn, CT</option>
+          <option value="STURBRIDGE, MA">Sturbridge, MA</option>
+          <option value="TF GREEN ARPT, RI">Tf Green Arpt, RI</option>
+          <option value="TORRINGTON, CT">Torrington, CT</option>
+          <option value="UNIV OF MA AMHERST, MA">Univ Of Ma Amherst, MA</option>
+          <option value="WAREHAM MILL POND DINER, MA">Wareham Mill Pond Diner, MA</option>
+          <option value="WASHINGTON, DC">Washington, DC</option>
+          <option value="WATERBURY, CT">Waterbury, CT</option>
+          <option value="WILLIAMSTOWN, MA">Williamstown, MA</option>
+          <option value="WILMINGTON, DE">Wilmington, DE</option>
+          <option value="WINSTED, CT">Winsted, CT</option>
+          <option value="WOODS HOLE, MA">Woods Hole, MA</option>
+          <option value="WORCESTER, MA">Worcester, MA</option>
 
-</head>
+        </select> 
+        <br> 
+        <br>
+        <label>Destination of Ticket</label>
+        <select ng-model="user.final_location">
+                    
+          <option value="ALBANY, NY">Albany, NY</option>
+          <option value="AMHERST, MA">Amherst, MA</option>
+          <option value="BALTIMORE DOWNTOWN, MD">Baltimore Downtown, MD</option>
+          <option value="BARNSTABLE, MA">Barnstable, MA</option>
+          <option value="BOSTON, MA">Boston, MA</option>
+          <option value="BOSTON LOGAN ARPT, MA">Boston Logan Arpt, MA</option>
+          <option value="BOURNE, MA">Bourne, MA</option>
+          <option value="BUZZARDS BAY, MA">Buzzards Bay, MA</option>
+          <option value="CONCORD, NH">Concord, NH</option>
+          <option value="DANBURY, CT">Danbury, CT</option>
+          <option value="DEERFIELD, MA">Deerfield, MA</option>
+          <option value="FALL RIVER, MA">Fall River, MA</option>
+          <option value="FALMOUTH, MA">Falmouth, MA</option>
+          <option value="FARMINGTON, CT">Farmington, CT</option>
+          <option value="FRAMINGHAM, MA">Framingham, MA</option>
+          <option value="GREAT BARRINGTON, MA">Great Barrington, MA</option>
+          <option value="GREENFIELD, MA">Greenfield, MA</option>
+          <option value="HAMPSHIRE COLL, MA">Hampshire Coll, MA</option>
+          <option value="HARTFORD, CT">Hartford, CT</option>
+          <option value="HOLYOKE, MA">Holyoke, MA</option>
+          <option value="HOLYOKE MALL, MA">Holyoke Mall, MA</option>
+          <option value="HYANNIS, MA">Hyannis, MA</option>
+          <option value="LEE, MA">Lee, MA</option>
+          <option value="LENOX, MA">Lenox, MA</option>
+          <option value="LEOMINSTER, MA">Leominster, MA</option>
+          <option value="LOWELL, MA">Lowell, MA</option>
+          <option value="MANCHESTER, NH">Manchester, NH</option>
+          <option value="MANSFIELD, CT">Mansfield, CT</option>
+          <option value="MIDDLETOWN, RI">Middletown, RI</option>
+          <option value="MT LAUREL, NJ">Mt Laurel, NJ</option>
+          <option value="NASHUA, NH">Nashua, NH</option>
+          <option value="NEWARK, NJ">Newark, NJ</option>
+          <option value="NEW BEDFORD, MA">New Bedford, MA</option>
+          <option value="NEW BRITAIN, CT">New Britain, CT</option>
+          <option value="NEW CARROLLTON, MD">New Carrollton, MD</option>
+          <option value="NEW HAVEN, CT">New Haven, CT</option>
+          <option value="NEWPORT, RI">Newport, RI</option>
+          <option value="NEW YORK, NY">New York, NY</option>
+          <option value="NORTHAMPTON, MA">Northampton, MA</option>
+          <option value="PHILADELPHIA, PA">Philadelphia, PA</option>
+          <option value="PITTSFIELD, MA">Pittsfield, MA</option>
+          <option value="PORTSMOUTH, RI">Portsmouth, RI</option>
+          <option value="PROVIDENCE BZ, RI">Providence Bz, RI</option>
+          <option value="PROVIDENCE DOWNTOWN,RI">Providence Downtown, RI</option>
+          <option value="SHEFFIELD, MA">Sheffield, MA</option>
+          <option value="SILVER SPRING, MD">Silver Spring, MD</option>
+          <option value="SOMERSET PARK, MA">Somerset Park, MA</option>
+          <option value="SOUTHBURY, CT">Southbury, CT</option>
+          <option value="SOUTH HADLEY, MA">South Hadley, MA</option>
+          <option value="SPRINGFIELD, MA">Springfield, MA</option>
+          <option value="STOCKBRIDGE, MA">Stockbridge, MA</option>
+          <option value="STORRS UCONN CT">Storrs Uconn, CT</option>
+          <option value="STURBRIDGE, MA">Sturbridge, MA</option>
+          <option value="TF GREEN ARPT, RI">Tf Green Arpt, RI</option>
+          <option value="TORRINGTON, CT">Torrington, CT</option>
+          <option value="UNIV OF MA AMHERST, MA">Univ Of Ma Amherst, MA</option>
+          <option value="WAREHAM MILL POND DINER, MA">Wareham Mill Pond Diner, MA</option>
+          <option value="WASHINGTON, DC">Washington, DC</option>
+          <option value="WATERBURY, CT">Waterbury, CT</option>
+          <option value="WILLIAMSTOWN, MA">Williamstown, MA</option>
+          <option value="WILMINGTON, DE">Wilmington, DE</option>
+          <option value="WINSTED, CT">Winsted, CT</option>
+          <option value="WOODS HOLE, MA">Woods Hole, MA</option>
+          <option value="WORCESTER, MA">Worcester, MA</option>
+
+        </select> 
+                  </div>
+                <div class="form-group col-sm-3">
+                 <label>Origin of Trip</label>
+                <select ng-model="user.initial_trip">
+                    
+          <option value="ALBANY, NY">Albany, NY</option>
+          <option value="AMHERST, MA">Amherst, MA</option>
+          <option value="BALTIMORE DOWNTOWN, MD">Baltimore Downtown, MD</option>
+          <option value="BARNSTABLE, MA">Barnstable, MA</option>
+          <option value="BOSTON, MA">Boston, MA</option>
+          <option value="BOSTON LOGAN ARPT, MA">Boston Logan Arpt, MA</option>
+          <option value="BOURNE, MA">Bourne, MA</option>
+          <option value="BUZZARDS BAY, MA">Buzzards Bay, MA</option>
+          <option value="CONCORD, NH">Concord, NH</option>
+          <option value="DANBURY, CT">Danbury, CT</option>
+          <option value="DEERFIELD, MA">Deerfield, MA</option>
+          <option value="FALL RIVER, MA">Fall River, MA</option>
+          <option value="FALMOUTH, MA">Falmouth, MA</option>
+          <option value="FARMINGTON, CT">Farmington, CT</option>
+          <option value="FRAMINGHAM, MA">Framingham, MA</option>
+          <option value="GREAT BARRINGTON, MA">Great Barrington, MA</option>
+          <option value="GREENFIELD, MA">Greenfield, MA</option>
+          <option value="HAMPSHIRE COLL, MA">Hampshire Coll, MA</option>
+          <option value="HARTFORD, CT">Hartford, CT</option>
+          <option value="HOLYOKE, MA">Holyoke, MA</option>
+          <option value="HOLYOKE MALL, MA">Holyoke Mall, MA</option>
+          <option value="HYANNIS, MA">Hyannis, MA</option>
+          <option value="LEE, MA">Lee, MA</option>
+          <option value="LENOX, MA">Lenox, MA</option>
+          <option value="LEOMINSTER, MA">Leominster, MA</option>
+          <option value="LOWELL, MA">Lowell, MA</option>
+          <option value="MANCHESTER, NH">Manchester, NH</option>
+          <option value="MANSFIELD, CT">Mansfield, CT</option>
+          <option value="MIDDLETOWN, RI">Middletown, RI</option>
+          <option value="MT LAUREL, NJ">Mt Laurel, NJ</option>
+          <option value="NASHUA, NH">Nashua, NH</option>
+          <option value="NEWARK, NJ">Newark, NJ</option>
+          <option value="NEW BEDFORD, MA">New Bedford, MA</option>
+          <option value="NEW BRITAIN, CT">New Britain, CT</option>
+          <option value="NEW CARROLLTON, MD">New Carrollton, MD</option>
+          <option value="NEW HAVEN, CT">New Haven, CT</option>
+          <option value="NEWPORT, RI">Newport, RI</option>
+          <option value="NEW YORK, NY">New York, NY</option>
+          <option value="NORTHAMPTON, MA">Northampton, MA</option>
+          <option value="PHILADELPHIA, PA">Philadelphia, PA</option>
+          <option value="PITTSFIELD, MA">Pittsfield, MA</option>
+          <option value="PORTSMOUTH, RI">Portsmouth, RI</option>
+          <option value="PROVIDENCE BZ, RI">Providence Bz, RI</option>
+          <option value="PROVIDENCE DOWNTOWN,RI">Providence Downtown, RI</option>
+          <option value="SHEFFIELD, MA">Sheffield, MA</option>
+          <option value="SILVER SPRING, MD">Silver Spring, MD</option>
+          <option value="SOMERSET PARK, MA">Somerset Park, MA</option>
+          <option value="SOUTHBURY, CT">Southbury, CT</option>
+          <option value="SOUTH HADLEY, MA">South Hadley, MA</option>
+          <option value="SPRINGFIELD, MA">Springfield, MA</option>
+          <option value="STOCKBRIDGE, MA">Stockbridge, MA</option>
+          <option value="STORRS UCONN CT">Storrs Uconn, CT</option>
+          <option value="STURBRIDGE, MA">Sturbridge, MA</option>
+          <option value="TF GREEN ARPT, RI">Tf Green Arpt, RI</option>
+          <option value="TORRINGTON, CT">Torrington, CT</option>
+          <option value="UNIV OF MA AMHERST, MA">Univ Of Ma Amherst, MA</option>
+          <option value="WAREHAM MILL POND DINER, MA">Wareham Mill Pond Diner, MA</option>
+          <option value="WASHINGTON, DC">Washington, DC</option>
+          <option value="WATERBURY, CT">Waterbury, CT</option>
+          <option value="WILLIAMSTOWN, MA">Williamstown, MA</option>
+          <option value="WILMINGTON, DE">Wilmington, DE</option>
+          <option value="WINSTED, CT">Winsted, CT</option>
+          <option value="WOODS HOLE, MA">Woods Hole, MA</option>
+          <option value="WORCESTER, MA">Worcester, MA</option>
+
+        </select> 
+
+        <br> 
+        <br>
+        <label>Destination of Trip</label>
+        <select ng-model="user.final_trip">
+                    
+          <option value="ALBANY, NY">Albany, NY</option>
+          <option value="AMHERST, MA">Amherst, MA</option>
+          <option value="BALTIMORE DOWNTOWN, MD">Baltimore Downtown, MD</option>
+          <option value="BARNSTABLE, MA">Barnstable, MA</option>
+          <option value="BOSTON, MA">Boston, MA</option>
+          <option value="BOSTON LOGAN ARPT, MA">Boston Logan Arpt, MA</option>
+          <option value="BOURNE, MA">Bourne, MA</option>
+          <option value="BUZZARDS BAY, MA">Buzzards Bay, MA</option>
+          <option value="CONCORD, NH">Concord, NH</option>
+          <option value="DANBURY, CT">Danbury, CT</option>
+          <option value="DEERFIELD, MA">Deerfield, MA</option>
+          <option value="FALL RIVER, MA">Fall River, MA</option>
+          <option value="FALMOUTH, MA">Falmouth, MA</option>
+          <option value="FARMINGTON, CT">Farmington, CT</option>
+          <option value="FRAMINGHAM, MA">Framingham, MA</option>
+          <option value="GREAT BARRINGTON, MA">Great Barrington, MA</option>
+          <option value="GREENFIELD, MA">Greenfield, MA</option>
+          <option value="HAMPSHIRE COLL, MA">Hampshire Coll, MA</option>
+          <option value="HARTFORD, CT">Hartford, CT</option>
+          <option value="HOLYOKE, MA">Holyoke, MA</option>
+          <option value="HOLYOKE MALL, MA">Holyoke Mall, MA</option>
+          <option value="HYANNIS, MA">Hyannis, MA</option>
+          <option value="LEE, MA">Lee, MA</option>
+          <option value="LENOX, MA">Lenox, MA</option>
+          <option value="LEOMINSTER, MA">Leominster, MA</option>
+          <option value="LOWELL, MA">Lowell, MA</option>
+          <option value="MANCHESTER, NH">Manchester, NH</option>
+          <option value="MANSFIELD, CT">Mansfield, CT</option>
+          <option value="MIDDLETOWN, RI">Middletown, RI</option>
+          <option value="MT LAUREL, NJ">Mt Laurel, NJ</option>
+          <option value="NASHUA, NH">Nashua, NH</option>
+          <option value="NEWARK, NJ">Newark, NJ</option>
+          <option value="NEW BEDFORD, MA">New Bedford, MA</option>
+          <option value="NEW BRITAIN, CT">New Britain, CT</option>
+          <option value="NEW CARROLLTON, MD">New Carrollton, MD</option>
+          <option value="NEW HAVEN, CT">New Haven, CT</option>
+          <option value="NEWPORT, RI">Newport, RI</option>
+          <option value="NEW YORK, NY">New York, NY</option>
+          <option value="NORTHAMPTON, MA">Northampton, MA</option>
+          <option value="PHILADELPHIA, PA">Philadelphia, PA</option>
+          <option value="PITTSFIELD, MA">Pittsfield, MA</option>
+          <option value="PORTSMOUTH, RI">Portsmouth, RI</option>
+          <option value="PROVIDENCE BZ, RI">Providence Bz, RI</option>
+          <option value="PROVIDENCE DOWNTOWN,RI">Providence Downtown, RI</option>
+          <option value="SHEFFIELD, MA">Sheffield, MA</option>
+          <option value="SILVER SPRING, MD">Silver Spring, MD</option>
+          <option value="SOMERSET PARK, MA">Somerset Park, MA</option>
+          <option value="SOUTHBURY, CT">Southbury, CT</option>
+          <option value="SOUTH HADLEY, MA">South Hadley, MA</option>
+          <option value="SPRINGFIELD, MA">Springfield, MA</option>
+          <option value="STOCKBRIDGE, MA">Stockbridge, MA</option>
+          <option value="STORRS UCONN CT">Storrs Uconn, CT</option>
+          <option value="STURBRIDGE, MA">Sturbridge, MA</option>
+          <option value="TF GREEN ARPT, RI">Tf Green Arpt, RI</option>
+          <option value="TORRINGTON, CT">Torrington, CT</option>
+          <option value="UNIV OF MA AMHERST, MA">Univ Of Ma Amherst, MA</option>
+          <option value="WAREHAM MILL POND DINER, MA">Wareham Mill Pond Diner, MA</option>
+          <option value="WASHINGTON, DC">Washington, DC</option>
+          <option value="WATERBURY, CT">Waterbury, CT</option>
+          <option value="WILLIAMSTOWN, MA">Williamstown, MA</option>
+          <option value="WILMINGTON, DE">Wilmington, DE</option>
+          <option value="WINSTED, CT">Winsted, CT</option>
+          <option value="WOODS HOLE, MA">Woods Hole, MA</option>
+          <option value="WORCESTER, MA">Worcester, MA</option>
+
+        </select> 
+
+
+               </div>
+              
+            </form>
+            <div class="col-sm-3">
+            
+               <b>name</b> = <span ng-bind="user.username | uppercase "></span>
+               <br>
+               <b>price</b> = <span ng-bind="user.price"></span>
+               <br>
+               <b>date</b> = <span ng-bind="user.date | date:'d MMM y'"></span>
+               <br>
+               <b>time</b> = <span ng-bind="user.time | date:'hh:mm'"></span>
+               <br>
+               <b>AM/PM</b> = <span ng-bind="user.time | date:'a'"></span>
+               </div>
+               
+               <div class="col-sm-3">
+        
+               <b>initial-location</b> = <span ng-bind="user.initial_location"></span>
+               <br>
+               <b>final-location</b> = <span ng-bind="user.final_location"></span>
+               <br>
+               <b>initial-trip</b> = <span ng-bind="user.initial_trip"></span>
+               <br>
+               <b>final-trip</b> = <span ng-bind="user.final_trip"></span>
+               
+               </div>
 
 
 
-
-<body ng-app="">
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-   
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-   
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="navbar-form navbar-right" role="form">
-                        <div class="input-group">
-                            <button class="btn btn-success" ng-click="showme=true">Input form</button>               
-                        </div>
-
-                        <div class="input-group">
-                           
-                           <script>
-                        function print() {
-                                window.print();
-                                }
-                            </script>
-
-                            <button  class="btn btn-danger" ng-click="showme=false">Hide</button>      
-                         
-                              
-                        </div>
-
-     
-    </div>
-  </div>
-</nav>
-
-
-<div class="col-lg-12">
-
-
- <div ng-show="showme">
-
-    <div class="row">
-        <div class="col-lg-8">
-                    <form>    
-                        <div class="p-m">
-                            <div class="row">
-                                <div class="form-group col-sm-2">
-
-                                    <label>Full Name</label>
-                                    <input type="text" value="" id="" class="form-control" ng-model="user.username" placeholder="Last, First">
-                                    </div>
-                                    <div class="form-group col-sm-2">
-                                    <label>Price</label>
-                                    <input type="" value="" id="" class="form-control" ng-model="user.price" placeholder="$16.00">
-                                    </div>  
-
-                                 <div class="form-group col-sm-3">
-                                  <label>Date</label>   
-                               <input type="date" value="" id="" class="form-control" ng-model="user.date" style="width:158px;"></input>
-                                </div>
-                             <div class="form-group col-sm-2">
-                                  <label>Time</label>   
-                               <input type="time" value="" id="" class="form-control" ng-model="user.time" style="
-                            width:125px;"></input>
-                                </div>
-                                <div class="form-group col-xs-1">
-                                  <label>AM/PM</label>   
-                               <input type="text" value="" id="" class="form-control" ng-model="user.am_pm" style="
-                            width:50;"></input>
-                                </div>
-                            
-                           <div class="form-group col-sm-2">
-
-
-
-                           </div>
-
-                     
-                        </div>
-                        </div>
-                        </form>
-
-
-       
-                        <div class="m-t-md">
-
-<pre>user.name = <span ng-bind="user.username | uppercase "></span></pre>
-<pre>user.price = <span ng-bind="user.price"></span></pre>
-<pre>user.date = <span ng-bind="user.date | date:'MM/dd/yyyy'"></span></pre>
-<pre>user.time = <span ng-bind="user.time | date:'HH:mm'"></span></pre>
-<pre>user.time = <span ng-bind="user.am_pm | uppercase"></span></pre>
-
-
-
-
-                    </div>
-
-
-
-</div>
-
-</div>
-
+            </div>
+            </div>
+         </div>
+      </div>
 <div class="col-lg-12">
 
 <div id="mainContent">
@@ -543,6 +791,10 @@ for (i = 0; i < divCount-1; i++) {
 </div>
 </div>
 </div>
+</var>                   
+
+
+
 </body>
 
 </html>
