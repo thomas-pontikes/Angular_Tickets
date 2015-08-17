@@ -1,6 +1,17 @@
 <?php
 
 
+if( oid != null){
+
+echo 'session set';
+
+}else{
+
+echo 'session not set';
+
+
+}
+
 ?>
 
 <html>
